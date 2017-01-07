@@ -8,6 +8,8 @@ Just start the sketch.py file and play a vid!
 
 Technically this means you could use **any** fullscreened video that pauses when you click on the screen, but that would be going against the intended perpose of this project. It's only for ponies.
 
+If you want to change the time it waits between pausing or the time it pauses for you to draw, open sketch.py and change the value of 'sketch_time' and 'draw_time' to your desired time in seconds. The default is pretty quick like I like, but you won't be getting much detail in.
+
 ## installation
 You'll need to have python installed and the PyUserInput python library installed.
 
