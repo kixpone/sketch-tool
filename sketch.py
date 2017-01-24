@@ -1,17 +1,22 @@
 from pymouse import PyMouse
+from pykeyboard import PyKeyboard
 import random
 import time
 
 ### User settings. Mess around with these!
-watch_time = 20
-draw_time = 30
+watch_time = 60
+draw_time = 60
 
 click_position = [100, 200]# I'd like to make it so you can click to
                           # set the position on the pause button, but
                           # that requires more code yet.
+click = True     #If true tool will click the screen
+spacebar = False #If true tool will press spacebar
+
 ### Not user settings. Mess around with these at your own risk!
 click_args = click_position + [1]
 m = PyMouse()
+k = PyKeyboard()
 #x_dim,y_dim = m.screen_size()
 #x_dim/2, y_dim/2, # would be middle of screen
 
@@ -20,10 +25,18 @@ def what_episode():
   e=random.randint(1,26)
   return("se{}ep{}".format(s,e))
 
+def click_function():
+  m.click(*click_args)
+def spacebar_function():
+  k.tap_key(' ')
+
 def watch():
   while True:
     time.sleep(watch_time)
-    m.click(*click_args)
+    if click:
+      click_function()
+    if spacebar:
+      spacebar_function()
     time.sleep(draw_time)
     m.click(*click_args)
       
